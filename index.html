@@ -12,6 +12,8 @@
             height: 534px;
             overflow: hidden;
             position: relative;
+            opacity: 0;
+            transition: opacity .3s ease-out;
         }
 
         div#comparison figure {
@@ -97,14 +99,15 @@
 
         .dragger{
           position: absolute;
-          right: -1px;
+          right: -2px;
           top:0;
           bottom:0;
-          width: 2px;
+          width: 4px;
           height: 100px;
           margin: auto;
-          background-color: #000;
+          background-color: #ccc;
           cursor: ew-resize;
+          box-shadow: 0 0 4px #000;
         }
 
     </style>
@@ -118,9 +121,9 @@
 
     function moveDivisor(e) {
         if(e.touches) {
-          pos = e.touches[0].clientX/maxwidth*100;
+          pos = (e.touches[0].clientX-4)/maxwidth*100;
         } else {
-          pos = e.clientX/maxwidth*100;
+          pos = (e.clientX-4)/maxwidth*100;
         }
         if(pos > 100) { pos = 100 }
         if(pos < 0) { pos = 0 }
@@ -134,8 +137,8 @@
           maxwidth = comparison.offsetWidth;
 
       //Mousedrag
-      comparison.addEventListener('mousedown', function (e) {
-        moveDivisor(e);
+      dragger.addEventListener('mousedown', function (e) {
+        //moveDivisor(e);
         document.body.addEventListener('mousemove', moveDivisor);
       });
       document.body.addEventListener('mouseup', function (e) {
@@ -143,8 +146,8 @@
       });
 
       //Touch
-      comparison.addEventListener('touchstart', function (e) {
-        moveDivisor(e);
+      dragger.addEventListener('touchstart', function (e) {
+        //moveDivisor(e);
         document.body.addEventListener('touchmove', moveDivisor);
       });
       document.body.addEventListener('touchend', function (e) {
@@ -157,9 +160,11 @@
       });
 
       divisor.style.width = pos + "%";
+      comparison.style.opacity = "1";
     };
   }(window, document));
 </script>
+
 
 <body>
     <div id="comparison">

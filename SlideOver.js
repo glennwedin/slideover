@@ -60,6 +60,7 @@ Slideover.prototype.moveDivisor = function (e) {
   divisor.style.width = pos + "%";
 }
 
+
 module.exports = Slideover;
 
 /*

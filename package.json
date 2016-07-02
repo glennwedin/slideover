@@ -1,0 +1,24 @@
+{
+  "name": "tv2-slider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "SlideOver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/glennwedin/tv2-slider.git"
+  },
+  "author": "Glenn Wedin <glenn.wedin@gmail.com> (http://www.wedinweb.no)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/glennwedin/tv2-slider/issues"
+  },
+  "homepage": "https://gitlab.com/glennwedin/tv2-slider#README",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-es2015": "^6.9.0",
+    "webpack": "^1.13.1"
+  }
+}

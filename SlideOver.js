@@ -1,4 +1,4 @@
-var Slideover = function (el) {
+var SlideOver = function (el) {
   this.el = el;
 
   //Generate html
@@ -61,7 +61,7 @@ Slideover.prototype.moveDivisor = function (e) {
 }
 
 
-module.exports = Slideover;
+module.exports = SlideOver;
 
 /*
 var Slideover = require('slideover');

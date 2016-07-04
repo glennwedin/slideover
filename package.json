@@ -5,7 +5,7 @@
   "main": "SlideOver.js",
   "scripts": {
     "devserver": "webpack-dev-server --content-base ./",
-    "buildDev": "webpack",
+    "buildDev": "webpack --watch",
     "buildProd": "webpack --optimize-minimize"
   },
   "repository": {

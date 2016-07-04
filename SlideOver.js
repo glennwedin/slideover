@@ -15,44 +15,74 @@ let SlideOver = function (el) {
       divisor.id = "divisor";
       dragger.className = "dragger";
 
-      divisor.appendChild(dragger);
       figure.appendChild(divisor);
       comparison.appendChild(figure);
+      comparison.appendChild(dragger);
 
       this.el.appendChild(comparison);
 
       //Set events
-      this.init = function() {
+      this.init = function(settings = {
+        imageOne: null,
+        imageTwo: null
+      }) {
+
+        if(!settings.imageOne || !settings.imageTwo) {
+          throw 'Nei';
+        }
+
         this.pos = 50;
         let th = this;
-        maxwidth = comparison.offsetWidth;
 
-        //Mousedrag
-        dragger.addEventListener('mousedown', function (e) {
-          //moveDivisor(e);
-          document.body.addEventListener('mousemove', moveDivisor);
+        let p1 = new Promise((resolve, reject) => {
+          let img1 = new Image();
+          img1.onload = function () {
+            resolve(img1);
+          }
+          img1.src=settings.imageOne;
         });
-        document.body.addEventListener('mouseup', function (e) {
-          document.body.removeEventListener('mousemove', moveDivisor);
-        });
+        let p2 = new Promise((resolve, reject) => {
+          let img2 = new Image();
+          img2.onload = function () {
+            resolve(img2);
+          }
+          img2.src=settings.imageTwo;
+        })
 
-        //Touch
-        dragger.addEventListener('touchstart', function (e) {
-          //moveDivisor(e);
-          document.body.addEventListener('touchmove', moveDivisor);
-        });
-        document.body.addEventListener('touchend', function (e) {
-          document.body.removeEventListener('touchmove', moveDivisor);
-        });
+        Promise.all([p1,p2]).then(img => {
+          divisor.appendChild(img[0]);
+          figure.appendChild(img[1]);
+          maxwidth = this.el.offsetWidth;
+          img[0].style.width = maxwidth+'px';
+          //Mousedrag
+          dragger.addEventListener('mousedown', function (e) {
+            //moveDivisor(e);
+            document.body.addEventListener('mousemove', moveDivisor);
+          });
+          document.body.addEventListener('mouseup', function (e) {
+            document.body.removeEventListener('mousemove', moveDivisor);
+          });
 
-        //window resize
-        document.body.addEventListener('resize', function () {
-          //reset
+          //Touch
+          dragger.addEventListener('touchstart', function (e) {
+            //moveDivisor(e);
+            document.body.addEventListener('touchmove', moveDivisor);
+          });
+          document.body.addEventListener('touchend', function (e) {
+            document.body.removeEventListener('touchmove', moveDivisor);
+          });
+
+          //window resize
+          document.body.addEventListener('resize', function () {
+            //reset
+            divisor.style.width = this.pos + "%";
+            dragger.style.left = this.pos + "%";
+          });
+
           divisor.style.width = this.pos + "%";
-        });
-
-        divisor.style.width = this.pos + "%";
-        comparison.style.opacity = "1";
+          dragger.style.left = this.pos + "%";
+          comparison.style.opacity = "1";
+        })
       };
 
     var moveDivisor = function (e) {
@@ -66,6 +96,7 @@ let SlideOver = function (el) {
         if(this.pos < 0) { this.pos = 0 }
 
         divisor.style.width = this.pos + "%";
+        dragger.style.left = this.pos + "%";
     }
 }
 

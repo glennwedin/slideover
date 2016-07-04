@@ -5,7 +5,7 @@ var env = 'developments';
 
 module.exports = {
     name: 'client',
-    entry: "./src/SlideOver.js",
+    entry: "./SlideOver.js",
     output: {
         path: __dirname,
         filename: "./dist/SlideOver.js"
@@ -16,6 +16,10 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                loaders: ["style", "scss", "sass"]
             }
         ]
     },

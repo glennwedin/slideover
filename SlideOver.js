@@ -30,31 +30,32 @@ let SlideOver = function (el) {
         //Mousedrag
         dragger.addEventListener('mousedown', function (e) {
           //moveDivisor(e);
-          document.body.addEventListener('mousemove', th.moveDivisor);
+          document.body.addEventListener('mousemove', moveDivisor);
         });
         document.body.addEventListener('mouseup', function (e) {
-          document.body.removeEventListener('mousemove', th.moveDivisor);
+          document.body.removeEventListener('mousemove', moveDivisor);
         });
 
         //Touch
         dragger.addEventListener('touchstart', function (e) {
           //moveDivisor(e);
-          document.body.addEventListener('touchmove', th.moveDivisor);
+          document.body.addEventListener('touchmove', moveDivisor);
         });
         document.body.addEventListener('touchend', function (e) {
-          document.body.removeEventListener('touchmove', th.moveDivisor);
+          document.body.removeEventListener('touchmove', moveDivisor);
         });
 
         //window resize
         document.body.addEventListener('resize', function () {
           //reset
+          divisor.style.width = this.pos + "%";
         });
 
         divisor.style.width = this.pos + "%";
         comparison.style.opacity = "1";
       };
 
-    this.moveDivisor = function (e) {
+    var moveDivisor = function (e) {
         let divisor = document.getElementById('divisor');
         if(e.touches) {
           this.pos = (e.touches[0].clientX-4)/maxwidth*100;

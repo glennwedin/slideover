@@ -33,7 +33,9 @@ let SlideOver = function (el) {
         }
 
         this.pos = 50;
-        let th = this;
+        let th = this,
+        tsx,
+        tsy;
 
         //Promise some images
         let p1 = new Promise((resolve, reject) => {
@@ -67,7 +69,8 @@ let SlideOver = function (el) {
 
           //Touch
           dragger.addEventListener('touchstart', function (e) {
-            //moveDivisor(e);
+            tsx = e.touches[0].clientX;
+            tsy = e.touches[0].clientY;
             document.body.addEventListener('touchmove', moveDivisor);
           });
           document.body.addEventListener('touchend', function (e) {
@@ -90,6 +93,9 @@ let SlideOver = function (el) {
     var moveDivisor = function (e) {
         let divisor = document.getElementById('divisor');
         if(e.touches) {
+          if ((Math.abs(e.changedTouches[0].clientX - tsx)) / Math.abs(e.changedTouches[0].clientY - tsy) > 1) {
+            e.preventDefault();
+          }
           this.pos = (e.touches[0].clientX-4)/maxwidth*100;
         } else {
           this.pos = (e.clientX-4)/maxwidth*100;

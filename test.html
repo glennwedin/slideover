@@ -41,62 +41,6 @@
       overflow: hidden;
   }
 
-  input[type=range] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      position: relative;
-      top: -2rem;
-      left: -2%;
-      background-color: rgba(255, 255, 255, 0.3);
-      width: 102%;
-  }
-
-  input[type=range]:focus {
-      outline: none;
-  }
-
-  input[type=range]:active {
-      outline: none;
-  }
-
-  input[type=range]::-moz-range-track {
-      -moz-appearance: none;
-      height: 15px;
-      width: 98%;
-      background-color: rgba(255, 255, 255, 0.1);
-      position: relative;
-      outline: none;
-  }
-
-  input[type=range]::active {
-      border: none;
-      outline: none;
-  }
-
-  input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 20px;
-      height: 15px;
-      background: #fff;
-      border-radius: 0;
-  }
-
-  input[type=range]::-moz-range-thumb {
-      -moz-appearance: none;
-      width: 20px;
-      height: 15px;
-      background: #fff;
-      border-radius: 0;
-  }
-
-  input[type=range]:focus::-webkit-slider-thumb {
-      background: rgba(255, 255, 255, 0.5);
-  }
-
-  input[type=range]:focus::-moz-range-thumb {
-      background: rgba(255, 255, 255, 0.5);
-  }
-
   .dragger{
     position: absolute;
     z-index: 2;
@@ -120,9 +64,8 @@
   <script>
     var s = new SlideOver(document.getElementById('randomelement'));
     s.init({
-      height: 300,
-      imageTwo: 'https://c2.staticflickr.com/4/3944/15526602308_b4751579ff_c.jpg',
-      imageOne: 'https://c1.staticflickr.com/1/447/18776343002_357f8952ba_c.jpg'
+      imageOne: 'https://c2.staticflickr.com/4/3944/15526602308_b4751579ff_c.jpg',
+      imageTwo: 'https://c1.staticflickr.com/1/447/18776343002_357f8952ba_c.jpg'
     });
   </script>
 </body>

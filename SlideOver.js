@@ -1,7 +1,16 @@
 //import "!style!css!sass!./style.scss";
 
+let ImgPromise = function (src) {
+  return new Promise(function(resolve, reject) {
+    let img = new Image();
+    img.onload = function () {
+      resolve(img);
+    }
+    img.src = src;
+  });
+}
+
 let SlideOver = function (el) {
-  this.el = el;
 
   let maxwidth = 0;
 
@@ -19,7 +28,7 @@ let SlideOver = function (el) {
       comparison.appendChild(figure);
       comparison.appendChild(dragger);
 
-      this.el.appendChild(comparison);
+      el.appendChild(comparison);
 
       //Set events
       this.init = function(settings = {
@@ -38,25 +47,13 @@ let SlideOver = function (el) {
         tsy;
 
         //Promise some images
-        let p1 = new Promise((resolve, reject) => {
-          let img1 = new Image();
-          img1.onload = function () {
-            resolve(img1);
-          }
-          img1.src=settings.imageOne;
-        }),
-        p2 = new Promise((resolve, reject) => {
-          let img2 = new Image();
-          img2.onload = function () {
-            resolve(img2);
-          }
-          img2.src=settings.imageTwo;
-        })
+        let p1 = new ImgPromise(settings.imageOne),
+        p2 = new ImgPromise(settings.imageTwo);
 
         Promise.all([p1,p2]).then(img => {
           divisor.appendChild(img[0]);
           figure.appendChild(img[1]);
-          maxwidth = this.el.offsetWidth;
+          maxwidth = el.offsetWidth;
           img[0].style.width = maxwidth+'px';
           //Mousedrag
           dragger.addEventListener('mousedown', function (e) {
@@ -78,8 +75,10 @@ let SlideOver = function (el) {
           });
 
           //window resize
-          document.body.addEventListener('resize', function () {
+          window.addEventListener('resize', function () {
             //reset
+            maxwidth = el.offsetWidth;
+            img[0].style.width = maxwidth+'px';
             divisor.style.width = this.pos + "%";
             dragger.style.left = this.pos + "%";
           });

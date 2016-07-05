@@ -27,21 +27,23 @@ let SlideOver = function (el) {
         imageTwo: null
       }) {
 
+        //Go nuts if images are missing
         if(!settings.imageOne || !settings.imageTwo) {
-          throw 'Nei';
+          throw new Error('Gooby Pls, images are missing');
         }
 
         this.pos = 50;
         let th = this;
 
+        //Promise some images
         let p1 = new Promise((resolve, reject) => {
           let img1 = new Image();
           img1.onload = function () {
             resolve(img1);
           }
           img1.src=settings.imageOne;
-        });
-        let p2 = new Promise((resolve, reject) => {
+        }),
+        p2 = new Promise((resolve, reject) => {
           let img2 = new Image();
           img2.onload = function () {
             resolve(img2);

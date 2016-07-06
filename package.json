@@ -2,7 +2,7 @@
   "name": "slideover",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/slideover.js",
+  "main": "dist/SlideOver.js",
   "scripts": {
     "devserver": "webpack-dev-server --content-base ./",
     "dev": "webpack --watch",

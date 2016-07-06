@@ -1,6 +1,8 @@
 # Slideover
 Before/after image slider
 
+NB: not yet in npm
+
 ### Install
 
 ```

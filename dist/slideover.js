@@ -169,11 +169,6 @@
 
 	exports.default = SlideOver;
 
-	/*
-	var Slideover = require('slideover');
-	var s = new Slideover(el);
-	*/
-
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {

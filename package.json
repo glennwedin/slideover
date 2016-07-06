@@ -5,9 +5,11 @@
   "main": "dist/slideover.js",
   "scripts": {
     "devserver": "webpack-dev-server --content-base ./",
-    "build": "webpack --watch",
+    "dev": "webpack --watch",
+    "build": "webpack",
     "prepublish": "webpack"
   },
+  "target": "node",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/glennwedin/slideover.git"

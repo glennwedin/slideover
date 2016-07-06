@@ -108,8 +108,3 @@ let SlideOver = function (el) {
 }
 
 export default SlideOver;
-
-/*
-var Slideover = require('slideover');
-var s = new Slideover(el);
-*/

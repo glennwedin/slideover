@@ -1,4 +1,4 @@
-//import "!style!css!sass!./style.scss";
+import "!style!css!sass!./style.scss";
 
 let ImgPromise = function (src) {
   return new Promise(function(resolve, reject) {
@@ -65,7 +65,7 @@ let SlideOver = function (el) {
           });
 
           //Touch
-          dragger.addEventListener('touchstart', function (e) {
+          comparison.addEventListener('touchstart', function (e) {
             tsx = e.touches[0].clientX;
             tsy = e.touches[0].clientY;
             document.body.addEventListener('touchmove', moveDivisor);
@@ -107,7 +107,7 @@ let SlideOver = function (el) {
     }
 }
 
-//export default SlideOver;
+export default SlideOver;
 
 /*
 var Slideover = require('slideover');

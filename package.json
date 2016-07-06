@@ -1,11 +1,12 @@
 {
   "name": "tv2-slider",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha1",
   "description": "",
-  "main": "SlideOver.js",
+  "main": "dist/slideover.js",
   "scripts": {
     "devserver": "webpack-dev-server --content-base ./",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "prepublish": "webpack"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,11 @@
   "bugs": {
     "url": "https://gitlab.com/glennwedin/tv2-slider/issues"
   },
+  "keywords":[
+    "slider",
+    "before and after",
+    "touchslider"
+  ],
   "homepage": "https://gitlab.com/glennwedin/tv2-slider#README",
   "devDependencies": {
     "babel": "^6.5.2",

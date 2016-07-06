@@ -8,7 +8,7 @@ module.exports = {
     entry: "./SlideOver.js",
     output: {
         path: __dirname,
-        filename: "./dist/SlideOver.js"
+        filename: "./dist/slideover.js"
     },
     module: {
         loaders: [

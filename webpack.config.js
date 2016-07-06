@@ -7,7 +7,6 @@ module.exports = {
     output: {
         path: __dirname,
         filename: "./dist/SlideOver.js",
-        library: 'SlideOver',
         libraryTarget: "umd"
     },
     module: {

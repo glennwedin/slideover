@@ -3,10 +3,10 @@
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
-	else if(typeof exports === 'object')
-		exports["SlideOver"] = factory();
-	else
-		root["SlideOver"] = factory();
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -55,10 +55,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
 
 	__webpack_require__(1);
 
@@ -177,7 +173,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	};
 
-	exports.default = SlideOver;
+	module.exports = SlideOver;
 
 /***/ },
 /* 1 */
@@ -214,7 +210,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "div#comparison {\n  width: 100%;\n  max-width: 800px;\n  height: 534px;\n  overflow: hidden;\n  position: relative;\n  opacity: 0;\n  transition: opacity .3s ease-out; }\n\ndiv#comparison figure {\n  background-image: url(\"https://c1.staticflickr.com/1/447/18776343002_357f8952ba_c.jpg\");\n  /*background-size: cover;*/\n  background-repeat: no-repeat;\n  font-size: 0;\n  width: 100%;\n  height: 534px;\n  margin: 0;\n  display: block; }\n\ndiv#comparison figure > img {\n  position: relative;\n  width: 100%; }\n\n#divisor {\n  background-image: url(\"https://c2.staticflickr.com/4/3944/15526602308_b4751579ff_c.jpg\");\n  position: absolute;\n  width: 100%;\n  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);\n  height: 534px;\n  display: block; }\n\n.dragger {\n  position: absolute;\n  right: -4px;\n  top: 0;\n  bottom: 0;\n  width: 8px;\n  height: 100px;\n  margin: auto;\n  background-color: #ccc;\n  cursor: ew-resize;\n  box-shadow: 0 0 4px #000; }\n", ""]);
+	exports.push([module.id, "div#comparison {\n  overflow: hidden;\n  position: relative;\n  opacity: 0;\n  width: 100%;\n  transition: opacity .3s ease-out; }\n\ndiv#comparison img {\n  width: 100%;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none; }\n\ndiv#comparison figure {\n  font-size: 0;\n  margin: 0;\n  display: block; }\n\n#divisor {\n  position: absolute;\n  background-repeat: no-repeat;\n  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);\n  display: block;\n  z-index: 2;\n  overflow: hidden; }\n\n.dragger {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  bottom: 0;\n  width: 8px;\n  height: 100px;\n  margin: auto auto auto -4px;\n  background-color: #ccc;\n  cursor: ew-resize;\n  box-shadow: 0 0 4px #000; }\n", ""]);
 
 	// exports
 

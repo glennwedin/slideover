@@ -107,4 +107,4 @@ let SlideOver = function (el) {
     }
 }
 
-export default SlideOver;
+module.exports = SlideOver;

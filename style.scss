@@ -1,46 +1,48 @@
 div#comparison {
-    width: 100%;
-    max-width: 800px;
-    height: 534px;
     overflow: hidden;
     position: relative;
     opacity: 0;
+    width: 100%;
     transition: opacity .3s ease-out;
 }
 
+div#comparison img{
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 div#comparison figure {
-    background-image: url('https://c1.staticflickr.com/1/447/18776343002_357f8952ba_c.jpg');
-    /*background-size: cover;*/
-    background-repeat: no-repeat;
     font-size: 0;
-    width: 100%;
-    height: 534px;
     margin: 0;
     display: block;
 }
 
-div#comparison figure> img {
-    position: relative;
-    width: 100%;
-}
-
 #divisor {
-    background-image: url('https://c2.staticflickr.com/4/3944/15526602308_b4751579ff_c.jpg');
     position: absolute;
-    width: 100%;
+    background-repeat: no-repeat;
     box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
-    height: 534px;
     display: block;
+    z-index: 2;
+    overflow: hidden;
 }
 
 .dragger{
   position: absolute;
-  right: -4px;
+  z-index: 2;
   top:0;
   bottom:0;
   width: 8px;
   height: 100px;
-  margin: auto;
+  margin: auto auto auto -4px;
   background-color: #ccc;
   cursor: ew-resize;
   box-shadow: 0 0 4px #000;

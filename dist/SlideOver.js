@@ -71,15 +71,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SlideOver = function SlideOver(el) {
 
 	  var maxwidth = 0;
-
+	  var id = Math.round(Math.random(11111, 99999) * 1000);
 	  //Generate html
 	  var comparison = document.createElement('div'),
 	      figure = document.createElement('figure'),
 	      divisor = document.createElement('div'),
 	      dragger = document.createElement('div');
 
-	  comparison.id = "comparison";
-	  divisor.id = "divisor";
+	  comparison.id = "slideover_" + id;
+	  comparison.className = "comparison";
+	  divisor.className = "divisor";
 	  dragger.className = "dragger";
 
 	  figure.appendChild(divisor);
@@ -152,7 +153,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 
 	  var moveDivisor = function moveDivisor(e) {
-	    var divisor = document.getElementById('divisor');
+	    var divisor = document.querySelector('#slideover_' + id + ' .divisor');
 	    if (e.touches) {
 	      if (Math.abs(e.changedTouches[0].clientX - tsx) / Math.abs(e.changedTouches[0].clientY - tsy) > 1) {
 	        e.preventDefault();
@@ -210,7 +211,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "div#comparison {\n  overflow: hidden;\n  position: relative;\n  opacity: 0;\n  width: 100%;\n  transition: opacity .3s ease-out; }\n\ndiv#comparison img {\n  width: 100%;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none; }\n\ndiv#comparison figure {\n  font-size: 0;\n  margin: 0;\n  display: block; }\n\n#divisor {\n  position: absolute;\n  background-repeat: no-repeat;\n  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);\n  display: block;\n  z-index: 2;\n  overflow: hidden; }\n\n.dragger {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  bottom: 0;\n  width: 8px;\n  height: 100px;\n  margin: auto auto auto -4px;\n  background-color: #ccc;\n  cursor: ew-resize;\n  box-shadow: 0 0 4px #000; }\n", ""]);
+	exports.push([module.id, "div.comparison {\n  overflow: hidden;\n  position: relative;\n  opacity: 0;\n  width: 100%;\n  transition: opacity .3s ease-out; }\n\ndiv.comparison img {\n  width: 100%;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none;\n  -webkit-user-drag: none;\n  -moz-user-drag: none;\n  -ms-user-select: none;\n  -o-user-select: none;\n  user-select: none; }\n\ndiv.comparison figure {\n  font-size: 0;\n  margin: 0;\n  display: block; }\n\n.divisor {\n  position: absolute;\n  background-repeat: no-repeat;\n  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);\n  display: block;\n  z-index: 2;\n  overflow: hidden; }\n\n.dragger {\n  position: absolute;\n  z-index: 2;\n  top: 0;\n  bottom: 0;\n  width: 8px;\n  height: 100px;\n  margin: auto auto auto -4px;\n  background-color: #ccc;\n  cursor: ew-resize;\n  box-shadow: 0 0 4px #000; }\n", ""]);
 
 	// exports
 

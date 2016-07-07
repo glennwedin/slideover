@@ -13,15 +13,16 @@ let ImgPromise = function (src) {
 let SlideOver = function (el) {
 
   let maxwidth = 0;
-
+  let id = Math.round(Math.random(11111, 99999)*1000);
   //Generate html
   let comparison = document.createElement('div'),
       figure     = document.createElement('figure'),
       divisor    = document.createElement('div'),
       dragger    = document.createElement('div');
 
-      comparison.id = "comparison";
-      divisor.id = "divisor";
+      comparison.id = "slideover_" + id;
+      comparison.className = "comparison";
+      divisor.className = "divisor";
       dragger.className = "dragger";
 
       figure.appendChild(divisor);
@@ -90,7 +91,7 @@ let SlideOver = function (el) {
       };
 
     var moveDivisor = function (e) {
-        let divisor = document.getElementById('divisor');
+        let divisor = document.querySelector('#slideover_'+id+' .divisor');
         if(e.touches) {
           if ((Math.abs(e.changedTouches[0].clientX - tsx)) / Math.abs(e.changedTouches[0].clientY - tsy) > 1) {
             e.preventDefault();

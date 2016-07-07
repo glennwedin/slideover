@@ -1,4 +1,4 @@
-div#comparison {
+div.comparison {
     overflow: hidden;
     position: relative;
     opacity: 0;
@@ -6,7 +6,7 @@ div#comparison {
     transition: opacity .3s ease-out;
 }
 
-div#comparison img{
+div.comparison img{
   width: 100%;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -20,13 +20,13 @@ div#comparison img{
   user-select: none;
 }
 
-div#comparison figure {
+div.comparison figure {
     font-size: 0;
     margin: 0;
     display: block;
 }
 
-#divisor {
+.divisor {
     position: absolute;
     background-repeat: no-repeat;
     box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);

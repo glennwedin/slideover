@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <style>
-  div#comparison {
+  div.comparison {
       overflow: hidden;
       position: relative;
       opacity: 0;
@@ -12,7 +12,7 @@
       transition: opacity .3s ease-out;
   }
 
-  div#comparison img{
+  div.comparison img{
     width: 100%;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -26,13 +26,13 @@
     user-select: none;
   }
 
-  div#comparison figure {
+  div.comparison figure {
       font-size: 0;
       margin: 0;
       display: block;
   }
 
-  #divisor {
+  .divisor {
       position: absolute;
       background-repeat: no-repeat;
       box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.3);
@@ -54,16 +54,23 @@
     box-shadow: 0 0 4px #000;
   }
 
+
   </style>
 </head>
 <body>
 
   <div id="randomelement"></div>
+  <div id="test"></div>
 
   <script src="SlideOver.js"></script>
   <script>
     var s = new SlideOver(document.getElementById('randomelement'));
     s.init({
+      imageTwo: 'https://c2.staticflickr.com/4/3944/15526602308_b4751579ff_c.jpg',
+      imageOne: 'https://c1.staticflickr.com/1/447/18776343002_357f8952ba_c.jpg'
+    });
+    var s2 = new SlideOver(document.getElementById('test'));
+    s2.init({
       imageTwo: 'https://c2.staticflickr.com/4/3944/15526602308_b4751579ff_c.jpg',
       imageOne: 'https://c1.staticflickr.com/1/447/18776343002_357f8952ba_c.jpg'
     });

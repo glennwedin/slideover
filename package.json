@@ -4,7 +4,6 @@
   "description": "",
   "main": "dist/slideover.js",
   "scripts": {
-    "devserver": "webpack-dev-server --content-base ./",
     "dev": "webpack --watch",
     "build": "webpack",
     "prepublish": "webpack"

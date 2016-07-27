@@ -10,7 +10,7 @@ npm install --save slideover
 ### Use
 
 ```
-  var s = require('slideover');
+  var SlideOver = require('slideover');
 
   <div id="randomelement"> </div>
 
